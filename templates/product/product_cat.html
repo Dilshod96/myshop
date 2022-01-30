@@ -1,0 +1,100 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+{% include "base/link.html" %}
+<h2 class="firsttitle text-xl-center text-center text-secondary">
+  {% if category %}
+    {{ category.name }}
+  {% else %}
+    Все категории
+  {% endif %}
+</h2>
+<section class="bg-light pt-xl-4 pb-xl-4 pt-4 pb-4 pl-3 pr-3">
+  <div class="row ml-xl-3 mr-xl-3 ml-lg-3 mr-lg-3 ml-0 mr-0">
+  {% include "base/cat_info.html" %}
+                      
+  <div class="col">
+    <div class="row">
+
+    {% for food in Cat %}
+
+      <div class="col-12 pl-1 pr-1 col-sm-6 col-md-6 col-lg-4">
+        <input type="hidden" name="id" value="37">
+        <input type="hidden" name="count" value="1">
+        <input type="hidden" name="options" value="[]">
+        <div class="row bg-white mt-2 mb-2 ml-1 mr-1 pt-3 pb-3">
+          <div class="col-5 col-sm-12">
+             <div class="flags mt-0 d-flex justify-content-around justify-content-md-start">
+               <span class="mr-md-1 sticker">
+               </span>
+             </div>
+              <div class="img-fluid tac text-center">
+
+                <a href="{% url 'product_info' food.id %}">
+                  {% if food.product_img %}
+                    <img src="{{ food.product_img.url }}" class="img-fluid img_crp">
+                  {% else %}
+                    <img src="/media/product_img.jpg" class="img-fluid img_crp">
+                  {% endif %}
+                </a>
+
+              </div>
+          </div>
+          <div class="col col-sm-12">
+            <div class="row">
+              <div class="col">
+                <a href="kopiya-nabor-%c2%absoberi-roll%c2%bb.html" 
+                  class="font-weight-bold">{{ food.name }}</a>
+              </div>
+              <div class="col-12 opisanie">
+                <p class="text-muted small">
+                  {{ food.description }}
+                </p>
+              </div>
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-8 pr-1 col-lg-7 col-sm-8 col-md-6">
+                    <div class="row">
+                      <div class="col-12">
+                        <span class="price font-weight-bold">
+                          <span class="msoptionsprice-cost msoptionsprice-37">
+                            {{ food.price }}
+                          </span>
+                          so'm
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4 pl-1 col-lg-5 col-md-6 text-right">
+                    <div class="row justify-content-end">
+                      <div class="col text-right">
+                        <form action="{% url 'cart_add' food.id %}" method="post">
+                          {% csrf_token %}
+                           <div class="d-none">
+                           {{ cart_product_form }}
+                           </div>
+                          <input type="submit" value="+" 
+                          class="btn btn-cart btn-sm btn-outline-secondary">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+</section>
+<style type="text/css">
+  .ds_none {
+  display: none !important;
+}
+</style>
+{% endblock content %}

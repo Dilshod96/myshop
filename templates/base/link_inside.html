@@ -1,0 +1,22 @@
+  <section id="breadcrumbs" class="bg-light d-none d-lg-block">
+    <div class="row ml-3 mr-3">
+      <div class="col">
+        <ol class="breadcrumb mb-0 pl-0 pr-0 bg-light">
+          <li class="breadcrumb-item breadcrumb-link text-body">
+            <a href="{% url 'product_list' %}">Главная</a>
+          </li>
+
+          <li class="breadcrumb-item">
+            <a href="{% url 'product_cat' object.category.id %}">
+              {{object.category}}
+            </a>
+          </li>
+
+          <li class="breadcrumb-item">
+            {{object.name}}
+          </li>
+
+         </ol>
+      </div>
+    </div>
+  </section>

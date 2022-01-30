@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+<section id="breadcrumbs" class="bg-light d-none d-lg-block">
+  <div class="row ml-3 mr-3">
+    <div class="col">
+      <ol class="breadcrumb mb-0 pl-0 pr-0 bg-light"><li class="breadcrumb-item breadcrumb-link text-body"><a href="/">Главная</a></li>
+      <li class="breadcrumb-item active">Оформление заказа</li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white pt-xl-4 pb-xl-4 pt-5 pb-4 pl-3 pr-3">
+  <div class="container">
+    <h1 class="mb-4 mt-4 text-xl-center text-center text-secondary">Оформление заказа</h1>
+  </div>
+
+  <div class="row ml-xl-3 mr-xl-3 ml-lg-3 mr-lg-3 ml-0 mr-0 mb-5">
+    <div class="col">
+      <p style="text-align: center;">
+        Спасибо, ваш заказ оформлен. Наши сотрудники уже получили информацию.&nbsp;
+      </p>
+      <p style="text-align: center;">
+         Данные о статусе вашего заказа уже отправлены на указанный вами email. При необходимости наш оператор свяжется с вами.&nbsp;
+      </p>
+    </div>
+  </div>
+
+</section>
+<style type="text/css">
+.link_none {
+  display: none !important;
+}
+  .ds_none {
+  display: none !important;
+}
+</style>
+{% endblock %}

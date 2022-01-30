@@ -1,0 +1,88 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% include "base/link_inside.html" %}
+
+<section class="pt-xl-4 pb-xl-4 pt-5 pb-4 pl-3 pr-3">
+  <div class="row ml-xl-3 mr-xl-3 ml-lg-3 mr-lg-3 ml-0 mr-0">
+    <div class="col">
+      <div class="row">
+        <div class="col-12 pl-1 pr-1 col-sm-6 col-md-6 col-lg-6">
+          <div class="row bg-white mt-2 mb-2 ml-1 mr-1 pb-4">
+            <div class="col-12">
+              <div id="msGallery">
+                <div class="fotorama" data-nav="thumbs" data-width="100%" data-thumbheight="45"
+                  data-allowfullscreen="true" data-swipe="true" data-autoplay="5000">
+                  <a href="{% url 'product_cat' product.category.id %}">
+                     {% if product.product_img %}
+                      <img src="{{ product.product_img.url }}" class="img-fluid img_crp">
+                     {% else %}
+                      <img src="/media/product_img.jpg" class="img-fluid img_crp">
+                     {% endif %}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 pl-1 pr-1 col-sm-6 col-md-6 col-lg-6">
+          <div class="row bg-white mt-2 mb-2 ml-1 mr-1 pb-4">
+            <div class="col-12">
+                <input type="hidden" name="id" value="37">
+                <input type="hidden" name="options" value="[]">
+                <input type="hidden" name="count" value="1">
+                <div class="row">
+                  <div class="col">
+                    <h1 class="font-weight-bold text-secondary">
+                      {{ product.name }}
+                    </h1>
+                  </div>
+                  <div class="col-12 pt-3 pb-3">
+                    <p>{{ product.description }}</p>
+                  </div>
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-8 pr-1 col-lg-7 col-md-6 col-sm-6">
+                        <div class="row">
+                          <div class="col-12">
+                            <span class="price font-weight-bold">
+                            <span class="msoptionsprice-cost msoptionsprice-37">
+                            {{ product.price }}
+                            </span> 
+                             so'm 
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+         
+                    </div>
+                  </div>
+                  <div class="col-12 mt-3">
+                    <div class="row">
+                      <div class="col-8 pr-1 col-lg-7 col-md-6 col-sm-6">
+                        <form action="{% url 'cart_add' product.id %}" method="post">
+                          {% csrf_token %}
+                           <div class="d-none">
+                           {{ cart_product_form }}
+                           </div>
+                          <input type="submit" value="В Корзина" 
+                          class="btn btn-cart btn-sm btn-outline-secondary">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style type="text/css">
+  .ds_none {
+  display: none !important;
+}
+</style>
+{% endblock content %}

@@ -1,0 +1,152 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<section id="breadcrumbs" class="bg-light d-none d-lg-block">
+  <div class="row ml-3 mr-3">
+    <div class="col">
+      <ol class="breadcrumb mb-0 pl-0 pr-0 bg-light"><li class="breadcrumb-item breadcrumb-link text-body"><a href="/">Главная</a></li>
+      <li class="breadcrumb-item active">Оформление заказа</li></ol>
+    </div>
+  </div>
+</section>
+<section class="pt-xl-4 pb-xl-4 pt-4 pb-4 pl-3 pr-3 bg-white">
+<div class="container">
+  <h2 class="firsttitle mb-4 text-xl-center text-center text-secondary">Оформление заказа</h2>
+</div>
+
+<form method="POST" class="ms2_form">
+  {% csrf_token %}
+    <div class="row ml-xl-3 mr-xl-3 ml-lg-3 mr-lg-3 
+      bg-white mt-2 mb-2 ml-0 mr-0">
+      <div class="pt-3 pb-3 col-12 col-sm-7">
+        <div class="row">
+          
+          <div class="pl-2 pr-2 col-12 mb-2">
+            <h5 class="black">
+              <i class="fa fa-check-square-o" aria-hidden="true"></i> 
+              Личная информация
+            </h5>
+          </div>
+
+          <div class="pl-2 pr-2 col-12 col-lg-6">
+            <input id="name" name="name" type="text" 
+            class="form-control required error" placeholder="Имя">
+          </div>
+
+          <div class="pl-2 pr-2 col-12 col-lg-6">
+            <input id="phone" name="phone" type="text" 
+            class="form-control required error" placeholder="Телефон" maxlength="17">
+          </div>
+
+          <div class="pl-2 pr-2 col-12">
+            <input id="email" name="email" type="text" 
+            class="form-control required error" placeholder="Email">
+          </div>
+
+          <div class="pl-2 pr-2 col-12 mt-3 mb-2">
+            <h5 class="black">
+              <i class="fa fa-map-marker" aria-hidden="true"></i> 
+              Адрес доставки
+            </h5>
+          </div>
+
+          <div class="pl-2 pr-2 col-12">
+            <input id="city" name="city" type="text" 
+            class="form-control required error" placeholder="Улица, номер дома">
+          </div>
+
+          <div class="pl-2 pr-2 col-12 col-lg-6">
+            <input id="street" name="street" type="text" 
+            class="form-control" placeholder="Подъезд">
+          </div>
+
+          <div class="pl-2 pr-2 col-12 col-lg-6">
+            <input id="building" name="building" type="text" 
+            class="form-control" placeholder="Этаж">
+          </div>
+
+          <div class="pl-2 pr-2 col-12 col-lg-6">
+            <input id="room" name="room" type="text" 
+            class="form-control" placeholder="Квартира/офис">
+          </div>
+
+          <div class="pl-2 pr-2 col-12 col-lg-6">
+            <input id="metro" name="metro" type="text" 
+            class="form-control" placeholder="Домофон">
+          </div>
+
+          <div class="pl-2 pr-2 col-12">
+            <input id="region" name="region" type="text" class="form-control" 
+            placeholder="Количество персон">
+          </div>
+
+          <div class="pl-2 pr-2 col-12">
+            <input id="comment" name="comment" type="text" class="form-control" 
+            placeholder="Количество персон">
+          </div>
+
+        </div>
+      </div>
+      <div class="pt-3 pb-3 col">
+        <div class="row">
+          <div class="col-12 pt-2 pb-2" id="deliveries">
+            <h5>Варианты доставки:</h5>
+            <div class="checkbox">
+              <label class="col-form-label delivery input-parent">
+                <input type="radio" name="delivery" 
+                value="2" id="delivery_2" data-payments="[4,1]" checked="">
+                Доставка
+              </label>
+            </div>
+            <div class="checkbox">
+              <label class="col-form-label delivery input-parent">
+                <input type="radio" name="delivery" value="1" 
+                id="delivery_1" data-payments="[4,1]">
+                 Самовывоз      
+                <p class="small">
+                  Заберите заказ в ресторане и получите скидку 10%                                    
+                </p>
+              </label>
+            </div>
+          </div>
+          <div class="col-12 pt-2 pb-2" id="payments">
+            <h5>Способы оплаты:</h5>
+            <div class="checkbox">
+              <label class="col-form-label payment input-parent" style="">
+                <input type="radio" name="payment" value="4" id="payment_4" checked="">
+                Банковской картой при получении 
+              </label>
+            </div>
+            <div class="checkbox">
+            <label class="col-form-label payment input-parent" style="">
+              <input type="radio" name="payment" value="1" id="payment_1">
+              Оплата наличными при получении
+            </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ml-xl-3 mr-xl-3 ml-lg-3 mr-lg-3 mt-2 mb-2 ml-0 mr-0">
+      <div class="col-12 align-self-center pt-3 pb-3 pl-0 pr-0">
+        <h6>Итого, с доставкой: 
+          <span id="ms2_order_cost">{{ cart.get_total_price }} so'm  ?</span>
+        </h6>
+      </div>
+    </div>
+    <a class="btn btn-success ml-md-2 ms2_link" href="{{ request.META.HTTP_REFERER|escape }}">
+      <i class="fa fa-angle-left" aria-hidden="true"></i> 
+      Назад
+    </a>
+
+    <button type="submit" name="ms2_action" class="btn btn-success ml-md-2 ms2_link">
+      Сделать заказ  
+    </button>
+
+  </form>
+</section>
+<style type="text/css">
+  .ds_none {
+  display: none !important;
+}
+</style>
+{% endblock content %}

@@ -1,0 +1,20 @@
+  <section class="sticky-top bg-white slidermenu mt-md-0 d-none d-sm-block" id="menuslider1">
+    <div class="scrollmenu pb-0">
+      {% for category in category_list %}
+        <a href="{% url 'product_cat' category.id %}" 
+          class="pb-1 pt-0 pl-1 pr-1 minw100" id="categor">
+          <div class="col-12 pl-0 pr-0 text-center pl-sm-0 pr-sm-0">
+            <img src="{{ category.category_img.url }}" class="img-fluid style5" 
+            width="80px" height="80px" title="Напитки">
+          </div>
+          <div class="col-12 text-center pt-2 pb-1 
+            pl-1 pr-1 align-self-sm-center pt-sm-2 
+            pb-sm-2 pl-sm-1 pr-sm-1">
+            <h6 class="mb-sm-0">
+              {{ category.name }}
+            </h6>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+   </section>

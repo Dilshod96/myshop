@@ -1,0 +1,503 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="UTF-8">
+  <title>Сайт для ресторанов axmadoltinjoja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta data-n-head="ssr" data-hid="description" name="description" content="axmadoltinjoja">
+  <meta data-n-head="ssr" data-hid="keywords" name="keywords" content="axmadoltinjoja">
+  
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'icons/css/font-awesome.min.css' %}" rel="stylesheet">
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <link href="{% static 'css/style3.css' %}" rel="stylesheet">
+  <link href="{% static 'css/jquery.mCustomScrollbar.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/jquery.fancybox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/jquery.fancybox.css' %}" rel="stylesheet">
+  <script src="{% static 'js_src/jquery-3.4.1.min.js' %}"></script>
+  <link rel="apple-touch-icon-precomposed" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link href="{% static 'css/jquery.formstyler.css' %}" rel="stylesheet">
+  <link href="{% static 'css/jquery.formstyler.theme.css' %}" rel="stylesheet">
+  <script src="{% static 'js_src/jquery.min.js' %}"></script>
+  <script src="{% static 'css/jquery.formstyler.min.js' %}"></script>
+  <link href="{% static 'css/jquery.formstyler.theme.css' %}" rel="stylesheet">
+  <link href="{% static 'css_src/defaulta194.css' %}" rel="stylesheet">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+
+<body id="index">
+<div class="wrapper fbottom">
+  <nav id="sidebar">
+
+  <div id="dismiss" class="btn btn-outline-secondary">
+    <i class="fa fa-times"></i>
+  </div>
+
+  <div class="sidebar-header">
+    <a class="navbar-brand text-sm-left ml-md-auto 
+      ml-sm-auto mr-auto w-auto callto" 
+      href="tel:+998909262626">
+      <img src="{% static 'img/phone.svg' %}">
+    </a>
+  </div>
+
+{% include "base/cat_mb.html" %}
+
+  <ul class="list-unstyled components">
+    <li>
+      <a href="{% url 'product_list' %}">Меню</a>
+    </li>
+    <li>
+      <a href="#0">О доставке</a>
+    </li>
+    <li>
+      <a href="#0">Новости и акции</a>
+    </li>
+    <li>
+      <a href="#0">Блог</a>
+    </li>
+    <li>
+      <a href="#0">Контакты</a>
+    </li>
+  </ul>
+</nav>
+    <!-- Page Content  -->
+<div id="content">
+  <div class="bodycontainer">
+    <div class="bodycontainer">
+              <!-- Top Nav Mobile  -->
+  <nav class="navbar shadownav navbar-expand-lg 
+    navbar-light sticky-top bg-white d-lg-none" id="mobilenavbar">
+    <div class="container-fluid pl-0 pr-0">
+      <button type="button" id="sidebarCollapse" 
+        class="btn btn-outline-secondary"><i class="fa fa-bars"></i>
+        <span>МЕНЮ</span>
+      </button>
+      <div class="navbar-nav ml-md-auto w-auto 
+        flex-row justify-content-center align-items-center ml-auto pl-3 pr-3">
+        <a href="cart.html">
+          <div id="msMiniCa" class="cart_mb">
+          {% with total_items=cart|length %}
+            {% if cart|length > 0 %}
+              <div class="col">
+               <img src="{% static 'img/cartr.svg' %}" class="cartimg img-fluid">
+                <a href="{% url 'cart_detail' %}">
+                  {{ total_items }} x,
+                </a>
+              </div>
+              {% else %}
+              <div class="col">
+                <img src="{% static 'img/cart.svg' %}" class="cartimg img-fluid">
+                <a href="{% url 'cart_detail' %}">
+                  {{ total_items }} x,
+                </a>
+              </div>
+            {% endif %}
+          {% endwith %}
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+<!-- /Top Nav Mobile  -->
+<section class="sticky-top topmenun bg-white pt-xl-1 pb-xl-1 pl-xl-3 
+  pr-xl-3 pt-lg-1 pb-lg-1 pt-md-2 pb-md-1 pt-2 pb-1 pl-3 
+  pr-3 pt-sm-2 pb-sm-1 d-none d-lg-block" id="mainmenu">
+  <div class="row ml-0 mr-0">
+    <div class="col-12 pl-0 pr-0">
+      <nav class="navbar navbar-expand-lg navbar-light justify-content-between pl-0 pr-0 sticky-top">
+        <button class="navbar-toggler mr-auto style2" 
+          type="button" data-toggle="collapse" 
+          data-target="#menunav" aria-controls="navbar1_collapse" 
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center nav_sz" id="menunav">
+          <ul class="navbar-nav verhneemenu">
+            <li class="nav-item nav-link">
+              <a href="{% url 'product_list' %}">Меню</a>
+            </li>
+            <li class="nav-item nav-link">
+              <a href="#0">О доставке</a>
+            </li>
+            <li class="nav-item nav-link">
+              <a href="#0">Новости и акции</a>
+            </li>
+            <li class="nav-item nav-link">
+              <a href="#0">Блог</a>
+            </li>
+            <li class="nav-item nav-link">
+              <a href="#0">Контакты</a>
+            </li>
+          </ul>
+        </div>
+        <div id="msMiniCart" class="cart_pc">
+          {% with total_items=cart|length %}
+              {% if cart|length > 0 %}
+              <div class="col">
+               <img src="{% static 'img/cartr.svg' %}" class="cartimg img-fluid">
+                <a href="{% url 'cart_detail' %}">
+                  {{ total_items }} x,
+                </a>
+              </div>
+              {% else %}
+              <div class="col">
+                <img src="{% static 'img/cart.svg' %}" class="cartimg img-fluid">
+                <a href="{% url 'cart_detail' %}">
+                  {{ total_items }} x,
+                </a>
+              </div>
+              {% endif %}
+          {% endwith %}
+        </div>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<header class="pt-1 pb-1 pl-3 pr-3 bg-white" id="topmenu">
+  <div class="row ml-0 mr-0">
+    <div class="align-self-center col-12 col-sm-5 col-md-4 text-lg-left text-center text-sm-left pl-0">
+      <h6>
+        <i class="fa fa-clock-o"></i>&nbsp;10:00-22:00
+      </h6>
+      <h6>
+        <i class="fa fa-map-marker" 
+        style="font-size: 1rem;"></i>&nbsp;38-3 Qovunchi ko'chasi, Тошкент, Узбекистан
+      </h6>
+    </div>
+    <div class="text-center align-self-center col-12 pt-3 pb-3 col-sm-2 col-md-4">
+    <a href="/">
+      <img src="{% static 'img/logo.png' %}" width="80%" class="logo">
+    </a>
+    </div>
+    <div class="align-self-center col-sm-5 col-md-4 
+    text-lg-right text-center text-sm-right pl-0 pr-0">
+      <a href="mailto:info@axmadoltinjoja.uz">
+        <h6>
+          <i class="fa fa-envelope-o"></i>&nbsp;info@axmadoltinjoja.uz
+        </h6>
+      </a>
+      <a href="tel:+998909262626">
+        <h6>
+          <i class="fa fa-mobile"></i>&nbsp;+998 (90) 926-26-26
+        </h6>
+      </a>
+      <a href="tel:+998901262626">
+        <h6>
+          <i class="fa fa-mobile"></i>&nbsp;+998 (90) 126-26-26
+        </h6>
+      </a>
+    </div>
+  </div>
+</header>
+
+
+{% if messages %}
+  {% for mess in messages %}
+    <div class="fixed-top">
+      <div class="alert_size">
+        <div class="alert myalert" role="alert">
+          {{ mess }}
+          <button type="button" class="close" 
+            data-dismiss="alert" aria-label="Close">
+            <div class="closer" aria-hidden="true">&times;</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% include "base/slider.html" %}
+{% include "base/cat_pc.html" %}
+{# {% include "base/link.html" %} #}
+{% block content %}
+{% endblock content %}
+
+
+  <footer class="bg-light wappler-block pt-5 footerh">
+  <div class="container mb-4 mt-4 text-center">
+    <img src="{% static 'img/logo.png' %}" 
+    class="img-fluid logobottom mb-xl-3 mb-2" width="70px">
+  </div>
+  <div class="container mb-4 mt-4">
+    <div class="nav justify-content-center">
+      <a class="nav-item nav-link" href="#" target="_blank"><i class="fa fa-instagram "></i></a>
+      <a class="nav-item nav-link" href="#" target="_blank"><i class="fa fa-facebook-official"></i></a>
+      <a class="nav-item nav-link" href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+      <a class="nav-item nav-link" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a class="nav-item nav-link" href="#" target="_blank"><i class="fa fa-vk"></i></a>
+      <a class="nav-item nav-link" href="#" target="_blank"><i class="fa fa-odnoklassniki"></i></a>
+    </div>
+  </div>
+<div class="container mb-5">
+  <div class="row align-items-top">
+    <div class="col-6 col-md text-center">
+      <ul class="list-unstyled text-small">
+        <li class="text-muted font-weight-light">
+          <a href="{% url 'product_list' %}">Меню</a>
+        </li>
+        <li class="text-muted font-weight-light">
+          <a href="#0">О доставке</a>
+        </li>
+        <li class="text-muted font-weight-light">
+          <a href="#0">Новости и акции</a>
+        </li>
+        <li class="text-muted font-weight-light">
+          <a href="#0">Блог</a>
+        </li>
+        <li class="text-muted font-weight-light">
+          <a href="#0">Контакты</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6 col-md text-center text-xl-center">
+      <ul class="list-unstyled text-small">
+        <li>
+          <p class="text-muted mb-xl-1 small mb-1 font-weight-light">
+            Национальные блюда Узбекской кухни и других блюд в Ташкент.
+          </p>
+          <p class="text-muted mb-xl-1 mb-1 small font-weight-light">
+            Прием заказов: c 10:00 до 20:00
+          </p>
+          <a href="tel:+998909262626">
+            <p class="text-muted mb-xl-1 mb-1 small font-weight-light">
+              <i class="fa fa-mobile"></i>
+              &nbsp;+998 (90) 926-26-26
+            </p>
+          </a>
+          <a href="tel:+998901262626">
+            <p class="text-muted mb-xl-1 mb-1 small font-weight-light">
+              <i class="fa fa-mobile"></i>
+              &nbsp;+998 (90) 126-26-26 
+            </p>
+          </a>
+          <a href="mailto:info@axmadoltinjoja.uz">
+            <p class="text-muted mb-xl-1 mb-1 small font-weight-light">
+              <i class="fa fa-envelope-o"></i>&nbsp;info@axmadoltinjoja.uz
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6 col-md text-center">
+      <ul class="list-unstyled text-small">
+        <li class="text-muted font-weight-light">
+          <a href="#0">Согласие на обработку данных</a>
+        </li>
+        <li class="text-muted font-weight-light">
+          <a href="politica.html">Политика конфиденциальности</a>
+        </li>
+        <li class="text-muted font-weight-light">
+          <a href="politica.html"><b>Сайт разработан в студии :</b></a>
+        </li>
+        
+        <a href="https://www.apple.com/ru/app-store/" target="_blank">
+        </a>
+
+      </ul>
+    </div>
+  </div>
+</div>
+    
+<div class="container mb-4 mt-4">
+<div class="row mt-5">
+  <div class="col-sm-6 mt-3 mb-3">
+    <div class="row justify-content-center">
+      <div class="text-center col-10 col-xl-7 col-lg-8">
+        <div class="row justify-content-center justify-content-lg-center">
+            
+            <div class="text-center mt-2 mb-2 pl-2 pr-2 col-6 col-sm-6 col-md-4 col-xl-4">
+              <a href="#" target="_blank">
+                <img src="{% static 'img/click-11.png' %}" 
+                class="mw90 img-fluid">
+              </a>
+            </div>
+            
+            <div class="text-center mt-2 mb-2 pl-2 pr-2 col-6 col-md-4 col-xl-4">
+              <a href="#" target="_blank">
+                <img src="{% static 'img/payme-11.png' %}" 
+                class="img-fluid mw90">
+              </a>
+            </div>
+            
+            
+        </div>
+      </div>
+    </div>
+  </div>
+    
+<div class="col-sm-6 mt-3 mb-3">
+  <div class="row">
+    <div class="col align-self-center pt-sm-2">
+      <div class="row justify-content-center justify-content-lg-center">
+          
+        <div class="col-2 text-center col-xl-1 pl-2 pr-2 col-lg-1">
+          <a href="https://api.whatsapp.com/send?phone=https://www.whatsapp.com/?lang=ru" 
+            target="_blank">
+            <i class="fa fa-whatsapp fa-2x whats" aria-hidden="true"></i>
+          </a>
+        </div>
+        
+        <div class="col-2 text-center col-xl-1 pl-2 pr-2 col-lg-1">
+          <a href="skype:https://www.skype.com/ru/" target="_blank">
+            <i class="fa fa-skype fa-2x skype" aria-hidden="true"></i>
+          </a>
+        </div>
+        
+        <div class="col-2 text-center col-xl-1 pl-2 pr-2 col-lg-1">
+          <a href="https://web.telegram.org/#/login" target="_blank">
+            <i class="fa fa-telegram fa-2x telegram" aria-hidden="true"></i>
+          </a>
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>  
+<div class="container mt-4">
+  <div class="row mt-3">
+  <div class="col">
+    <p class="text-secondary text-center small text-muted mb-1 font-weight-light">
+      © Название ресторана 2021. axmadoltinjoja.uz Все права защищены.
+    </p>
+  </div>
+  </div>
+</div>  
+
+</footer>
+</div>
+</div>    
+</div>
+</div>
+<div class="overlay"></div>
+
+<script>
+// disable right click
+$(function() {
+    $(this).bind("contextmenu", function(e) {
+        e.preventDefault();
+    });
+}); 
+
+// Prevent F12      
+$(document).keydown(function (event) {
+    if (event.keyCode == 123) { // Prevent F12
+        return false;
+    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+        return false;
+    }
+});
+
+//stop copy of content
+function killCopy(e){
+    return false
+}
+function reEnable(){
+    return true
+}
+document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=killCopy
+    document.onclick=reEnable
+}
+
+// prevent ctrl + s
+$(document).bind('keydown', function(e) {
+  if(e.ctrlKey && (e.which == 83)) {
+    e.preventDefault();
+    return false;
+  }
+});
+</script>
+
+<script src="{% static 'js_src/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+          theme: "minimal"
+      });
+
+      $('#dismiss, .overlay').on('click', function () {
+          $('#sidebar').removeClass('active');
+          $('.overlay').removeClass('active');
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').addClass('active');
+          $('.overlay').addClass('active');
+          $('.collapse.in').toggleClass('in');
+          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+  });
+</script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'js/jquery.mask.js' %}"></script>
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script>
+  $(document).ready(function(){
+      $("#phone").mask("8 (999) 999-99-99");
+  });
+</script>
+<script src="{% static 'js_src/defaulta194.js' %}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    var scrollpos = localStorage.getItem('scrollpos');
+    if (scrollpos) window.scrollTo(0, scrollpos);
+  });
+  window.onbeforeunload = function(e) {
+    localStorage.setItem('scrollpos', window.scrollY);
+  };
+</script>
+
+<script>
+!function(e){e.fn.mabCookieSet=function(o){var a=e.extend(!0,{},e.fn.mabCookieSet.defaults,o);return this.each(function(){var o=e(this),n=new Date,t=new Date,l="",s="",u=0;a.useData?(l=o.data("name"),s=o.data("value"),u=o.data("days")):(l=a.name,s=a.value,u=a.days),a.debug&&(console.log("---mabCookieSet---"),console.log("name : "+l),console.log("value : "+s),console.log("days : "+u),console.log("---")),(null==u||0==u)&&(u=1),l.length>0&&(t.setTime(n.getTime()+864e5*u),document.cookie=l+"="+escape(s)+";expires="+t.toGMTString()),a.onDone(o,a)})};e.fn.mabCookieSet.defaults={useData:!0,debug:!1,onDone:function(e,o){}}}(jQuery);
+</script>
+<style>
+  .cookieconsent{
+    background-color: rgba(51, 51, 51, 0.72);
+    padding: 2px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    font-size: 12px;
+    color:#fff;
+    text-align: left;
+    z-index: 99999;
+  }
+  .cookieconsent a{
+    color: inherit;
+    text-decoration: underline;
+  }
+  .cookieconsent_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cookieconsentclose_btn {
+    width: 35px;
+    height: 35px;
+    margin-left: 50px;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 35px;
+    min-width:35px;
+  }
+</style>
+  </body>
+</html>

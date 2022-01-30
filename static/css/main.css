@@ -1,0 +1,39 @@
+.img_crp {
+  width: 300px;
+  /*height: 270px;*/
+  object-fit:cover;
+}
+.nav_sz {
+  margin-left: 150px;
+}
+.cart_pc {
+  width: 160px;
+}
+.cart_mb {
+  width: 170px;
+  margin-right: -30px;
+}
+/*.slider_img {
+  height: 450px;
+  object-fit:cover;
+}*/
+
+.alert_size {
+  max-width: 230px;
+  margin-top: 12px;
+  margin-left: auto;
+  margin-right: 180px;
+}
+
+.myalert {
+  color: green;
+  border: solid 1px;
+  padding: 8px 20px;
+  position: absolute;
+  background-color: lightgreen;
+  box-shadow: 0 0rem 1rem lightgreen;
+}
+
+.closer {
+  margin-top: -1px;
+}
